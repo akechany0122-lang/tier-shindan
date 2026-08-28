@@ -598,3 +598,80 @@ body {
         font-size: 1.6rem;
     }
 }
+
+/* ==================================================
+   モバイル対応 (レスポンシブ)
+   ================================================== */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+    
+    .header__title {
+        font-size: 1.5rem;
+    }
+    
+    .header__description {
+        font-size: 0.9rem;
+    }
+
+    /* ティア表のラベル幅調整 */
+    .tier-row__label {
+        width: 40px;
+        font-size: 1.2rem;
+    }
+
+    /* プールのアイテムをモバイルでは折り返して表示（小さすぎるとタップできないため） */
+    .item-pool {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .value-item {
+        max-width: calc(25% - 10px); /* 4列表示 */
+        height: auto;
+    }
+
+    /* ドロップゾーンに入ったアイテムのサイズも少し小さく */
+    .tier-row__dropzone .value-item {
+        flex: 0 1 50px;
+        width: 50px;
+        height: 50px;
+    }
+
+    /* ホバーツールチップはモバイルだとタップ判定と被るので、少し位置を調整 */
+    .value-item__text {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+
+    /* 結果画面の余白調整 */
+    .result-content-wrapper {
+        padding: 10px;
+        gap: 20px;
+    }
+
+    .result-section {
+        padding: 15px;
+    }
+
+    .result-type-title {
+        font-size: 1.5rem;
+    }
+
+    .result-desc-text {
+        font-size: 0.95rem;
+        padding: 15px;
+    }
+
+    /* メタティアのアイコンサイズ調整 */
+    .meta-tier-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .meta-tier-list .tier-row__dropzone {
+        padding: 5px;
+        gap: 5px;
+    }
+}

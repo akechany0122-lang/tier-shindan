@@ -188,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animation: 150,
         ghostClass: 'sortable-ghost',
         dragClass: 'sortable-drag',
+        touchStartThreshold: 5,
         onSort: () => checkDiagnoseButtonState()
     };
 
