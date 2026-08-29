@@ -628,7 +628,8 @@ body {
     }
     
     .value-item {
-        max-width: calc(33.333% - 10px); /* 3列表示にして大きく */
+        flex: 0 0 calc(33.333% - 10px); /* 確実に3列になるようにベース幅を固定 */
+        max-width: calc(33.333% - 10px);
         height: auto;
     }
 
