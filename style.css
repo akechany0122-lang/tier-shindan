@@ -677,18 +677,15 @@ body {
     }
 }
 
-/* スワイプヒント・選択状態用 */
-.mobile-swipe-hint {
+
+/* タッチ操作ヒント・選択状態用 */
+.mobile-tap-hint {
     display: none;
     text-align: center;
     font-size: 0.85rem;
     color: var(--tier-a);
     margin: 5px 0 10px 0;
     font-weight: bold;
-}
-
-.item-pool-wrapper {
-    width: 100%;
 }
 
 .value-item.is-selected {
@@ -699,36 +696,47 @@ body {
     z-index: 10;
 }
 
+/* ティア表に6つ以上配置された場合、自動で小さくして枠内に収める（PC・スマホ共通） */
+.tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
+    flex: 0 1 45px !important;
+    width: 45px !important;
+    height: 45px !important;
+    max-width: 45px !important;
+}
+
 /* スマホ版上書き */
 @media (max-width: 768px) {
-    .mobile-swipe-hint {
+    .mobile-tap-hint {
         display: block;
     }
-    
-    .item-pool-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 15px; /* スクロールバー用の余白 */
-    }
 
+    /* アイコンを縦4列（1行に4つ）で折り返して配置 */
     .item-pool {
-        flex-wrap: nowrap; /* 1列に戻す */
-        width: max-content;
-        padding: 5px 10px;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 5px;
+        justify-content: center;
     }
     
     .value-item {
-        flex: 0 0 80px; /* アイコンサイズを80px固定 */
-        max-width: 80px;
-        height: 80px;
-        scroll-snap-align: center;
+        flex: 0 0 calc(25% - 10px); /* 大きさをキープしつつ4列表示 */
+        max-width: calc(25% - 10px);
+        height: auto;
     }
 
+    /* 基本のドロップ時のサイズ */
     .tier-row__dropzone .value-item {
         flex: 0 1 50px !important;
         width: 50px !important;
         height: 50px !important;
         max-width: 50px !important;
+    }
+
+    /* 6個以上配置された時のスマホ専用の縮小サイズ */
+    .tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
+        flex: 0 1 35px !important;
+        width: 35px !important;
+        height: 35px !important;
+        max-width: 35px !important;
     }
 }
