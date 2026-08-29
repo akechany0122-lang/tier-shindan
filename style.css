@@ -696,12 +696,12 @@ body {
     z-index: 10;
 }
 
-/* ティア表に6つ以上配置された場合、自動で小さくして枠内に収める（PC・スマホ共通） */
+/* ティア表に6つ以上配置された場合、自動で小さくして枠内に収める（PC用） */
 .tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
-    flex: 0 1 45px !important;
-    width: 45px !important;
-    height: 45px !important;
-    max-width: 45px !important;
+    flex: 0 1 55px !important;
+    width: 55px !important;
+    height: 55px !important;
+    max-width: 55px !important;
 }
 
 /* スマホ版上書き */
@@ -724,19 +724,19 @@ body {
         height: auto;
     }
 
-    /* 基本のドロップ時のサイズ */
+    /* 基本のドロップ時のサイズを大きなサイズに戻す */
     .tier-row__dropzone .value-item {
+        flex: 0 1 65px !important;
+        width: 65px !important;
+        height: 65px !important;
+        max-width: 65px !important;
+    }
+
+    /* 6個以上配置された時のスマホ専用の縮小サイズ（小さすぎないように調整） */
+    .tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
         flex: 0 1 50px !important;
         width: 50px !important;
         height: 50px !important;
         max-width: 50px !important;
-    }
-
-    /* 6個以上配置された時のスマホ専用の縮小サイズ */
-    .tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
-        flex: 0 1 35px !important;
-        width: 35px !important;
-        height: 35px !important;
-        max-width: 35px !important;
     }
 }
