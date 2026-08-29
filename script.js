@@ -203,6 +203,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- タップで選択して移動する機能 ---
+    let selectedItem = null;
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.value-item');
+        
+        // 1. アイテムをタップした場合
+        if (item) {
+            if (selectedItem) selectedItem.classList.remove('is-selected');
+            
+            if (selectedItem === item) {
+                // 同じものをタップしたら選択解除
+                selectedItem = null;
+            } else {
+                // 新しく選択
+                selectedItem = item;
+                selectedItem.classList.add('is-selected');
+            }
+            return; // 処理終了
+        }
+
+        // 2. ドロップゾーン（またはプール）の余白をタップした場合
+        const dropzone = e.target.closest('.tier-row__dropzone, .item-pool');
+        if (dropzone && selectedItem) {
+            dropzone.appendChild(selectedItem);
+            selectedItem.classList.remove('is-selected');
+            selectedItem = null;
+            checkDiagnoseButtonState();
+        } else if (selectedItem) {
+            // 関係ない場所をタップしたら選択解除
+            selectedItem.classList.remove('is-selected');
+            selectedItem = null;
+        }
+    });
+
     // ---------------------------------------------------------
     // 4. 診断ロジック (スコア計算)
     // ---------------------------------------------------------
