@@ -706,6 +706,26 @@ body {
 
 /* スマホ版上書き */
 @media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible; /* 画面に無理やり収めるのをやめ、スクロールを許可 */
+    }
+
+    .main-content {
+        flex: none; /* 残りの高さをすべて使う設定を解除 */
+    }
+
+    .tier-row {
+        flex: none;
+        min-height: 70px; /* ティア行が絶対に潰れないようにする */
+    }
+
+    .tier-list {
+        flex: none;
+    }
+
     .mobile-tap-hint {
         display: block;
     }
