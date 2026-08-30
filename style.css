@@ -724,19 +724,19 @@ body {
         height: auto;
     }
 
-    /* 基本のドロップ時のサイズを大きなサイズに戻す */
+    /* 基本のドロップ時のサイズをさらに大きく */
     .tier-row__dropzone .value-item {
-        flex: 0 1 65px !important;
-        width: 65px !important;
-        height: 65px !important;
-        max-width: 65px !important;
+        flex: 0 1 80px !important;
+        width: 80px !important;
+        height: 80px !important;
+        max-width: 80px !important;
     }
 
-    /* 6個以上配置された時のスマホ専用の縮小サイズ（小さすぎないように調整） */
+    /* 6個以上配置された時のスマホ専用の縮小サイズ（少し大きめ） */
     .tier-row__dropzone:has(.value-item:nth-child(6)) .value-item {
-        flex: 0 1 50px !important;
-        width: 50px !important;
-        height: 50px !important;
-        max-width: 50px !important;
+        flex: 0 1 55px !important;
+        width: 55px !important;
+        height: 55px !important;
+        max-width: 55px !important;
     }
 }
